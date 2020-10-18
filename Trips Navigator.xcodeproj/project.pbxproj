@@ -10,10 +10,13 @@
 		C8C7B6A4F45D12184E6E12BA /* Pods_Trips_Navigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E499661D65C4B5B03E102B /* Pods_Trips_Navigator.framework */; };
 		FF28D807253B75EF00A13F27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D806253B75EF00A13F27 /* AppDelegate.swift */; };
 		FF28D809253B75EF00A13F27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D808253B75EF00A13F27 /* SceneDelegate.swift */; };
-		FF28D80B253B75EF00A13F27 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D80A253B75EF00A13F27 /* ViewController.swift */; };
+		FF28D80B253B75EF00A13F27 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D80A253B75EF00A13F27 /* GoogleMapViewController.swift */; };
 		FF28D80E253B75EF00A13F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D80C253B75EF00A13F27 /* Main.storyboard */; };
 		FF28D810253B75F100A13F27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF28D80F253B75F100A13F27 /* Assets.xcassets */; };
 		FF28D813253B75F100A13F27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D811253B75F100A13F27 /* LaunchScreen.storyboard */; };
+		FF7E1359253D030100AF6072 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E1358253D030100AF6072 /* LocationHandler.swift */; };
+		FF7E135D253D037600AF6072 /* AlertHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E135C253D037600AF6072 /* AlertHandlerProtocol.swift */; };
+		FF7E1361253D03E800AF6072 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E1360253D03E800AF6072 /* UIApplication+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +26,14 @@
 		FF28D803253B75EF00A13F27 /* Trips Navigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trips Navigator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF28D806253B75EF00A13F27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF28D808253B75EF00A13F27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF28D80A253B75EF00A13F27 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF28D80A253B75EF00A13F27 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
 		FF28D80D253B75EF00A13F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF28D80F253B75F100A13F27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF28D812253B75F100A13F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF28D814253B75F100A13F27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF7E1358253D030100AF6072 /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationHandler.swift; path = LocationManager/LocationHandler.swift; sourceTree = "<group>"; };
+		FF7E135C253D037600AF6072 /* AlertHandlerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertHandlerProtocol.swift; path = AlertHandler/AlertHandlerProtocol.swift; sourceTree = "<group>"; };
+		FF7E1360253D03E800AF6072 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,9 +86,12 @@
 		FF28D805253B75EF00A13F27 /* Trips Navigator */ = {
 			isa = PBXGroup;
 			children = (
+				FF7E135F253D03D100AF6072 /* Extensions */,
+				FF7E135B253D036800AF6072 /* AlertHandler */,
+				FF7E1357253D02E100AF6072 /* LocationManager */,
+				FF368B39253CFC8700A83E9A /* Screens */,
 				FF368B33253CF75500A83E9A /* Storyboards */,
 				FF368B32253CF73000A83E9A /* Support Files */,
-				FF28D80A253B75EF00A13F27 /* ViewController.swift */,
 				FF28D80F253B75F100A13F27 /* Assets.xcassets */,
 			);
 			path = "Trips Navigator";
@@ -105,6 +114,78 @@
 				FF28D80C253B75EF00A13F27 /* Main.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FF368B39253CFC8700A83E9A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FF368B3B253CFCB200A83E9A /* AppleMap Search */,
+				FF368B3A253CFC9200A83E9A /* GoogleMap Search */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FF368B3A253CFC9200A83E9A /* GoogleMap Search */ = {
+			isa = PBXGroup;
+			children = (
+				FF368B3C253CFCBD00A83E9A /* Model */,
+				FF368B3D253CFCC500A83E9A /* View */,
+				FF368B3E253CFCC900A83E9A /* View Model */,
+			);
+			path = "GoogleMap Search";
+			sourceTree = "<group>";
+		};
+		FF368B3B253CFCB200A83E9A /* AppleMap Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "AppleMap Search";
+			sourceTree = "<group>";
+		};
+		FF368B3C253CFCBD00A83E9A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF368B3D253CFCC500A83E9A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF28D80A253B75EF00A13F27 /* GoogleMapViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF368B3E253CFCC900A83E9A /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		FF7E1357253D02E100AF6072 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				FF7E1358253D030100AF6072 /* LocationHandler.swift */,
+			);
+			name = LocationManager;
+			sourceTree = "<group>";
+		};
+		FF7E135B253D036800AF6072 /* AlertHandler */ = {
+			isa = PBXGroup;
+			children = (
+				FF7E135C253D037600AF6072 /* AlertHandlerProtocol.swift */,
+			);
+			name = AlertHandler;
+			sourceTree = "<group>";
+		};
+		FF7E135F253D03D100AF6072 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FF7E1360253D03E800AF6072 /* UIApplication+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,9 +320,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF28D80B253B75EF00A13F27 /* ViewController.swift in Sources */,
+				FF28D80B253B75EF00A13F27 /* GoogleMapViewController.swift in Sources */,
 				FF28D807253B75EF00A13F27 /* AppDelegate.swift in Sources */,
 				FF28D809253B75EF00A13F27 /* SceneDelegate.swift in Sources */,
+				FF7E1359253D030100AF6072 /* LocationHandler.swift in Sources */,
+				FF7E1361253D03E800AF6072 /* UIApplication+Ext.swift in Sources */,
+				FF7E135D253D037600AF6072 /* AlertHandlerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

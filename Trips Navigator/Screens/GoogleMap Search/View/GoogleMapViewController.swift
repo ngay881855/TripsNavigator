@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import GoogleMaps
 
-class ViewController: UIViewController {
-
+class GoogleMapViewController: UIViewController {
+    
+    // MARK: - IBOutlets
+    @IBOutlet weak var mapView: GMSMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
