@@ -13,7 +13,7 @@ extension UIApplication {
         guard let url = URL(string: UIApplication.openSettingsURLString), UIApplication.shared.canOpenURL(url) else { return }
         
         UIApplication.shared.open(url) { status in
-            print("Setting opended \(status)")
+            print("Setting opened \(status)")
         }
     }
 }

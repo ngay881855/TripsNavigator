@@ -29,16 +29,9 @@ class LocationHandler: NSObject {
     
     private var delegate: LocationHandlerDelegate?
     
-    var completion: ((Result<CLLocation, Error>) -> Void)?
-    
     // MARK: - Initializers
     init(delegate: LocationHandlerDelegate) {
         self.delegate = delegate
-        super.init()
-    }
-    
-    init(completion: ((Result<CLLocation, Error>) -> Void)?) {
-        self.completion = completion
         super.init()
     }
     
@@ -91,13 +84,11 @@ extension LocationHandler: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let mostRecentLocation = locations.last else { return }
-        //self.locationManager.stopUpdatingLocation()
-        //self.delegate?.received(location: mostRecentLocation)
-        self.completion?(.success(mostRecentLocation))
+        self.locationManager.stopUpdatingLocation()
+        self.delegate?.received(location: mostRecentLocation)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        //self.delegate?.didFail(withError: error)
-        self.completion?(.failure(error))
+        self.delegate?.didFail(withError: error)
     }
 }
