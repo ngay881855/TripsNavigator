@@ -156,6 +156,9 @@
 		FF368B3B253CFCB200A83E9A /* AppleMap Search */ = {
 			isa = PBXGroup;
 			children = (
+				FF376931253E266C00332085 /* Model */,
+				FF376932253E26E800332085 /* View */,
+				FF376933253E26F000332085 /* View Model */,
 			);
 			path = "AppleMap Search";
 			sourceTree = "<group>";
@@ -183,6 +186,27 @@
 			children = (
 				FF7E1378253D579900AF6072 /* PlaceViewModel.swift */,
 				FF7E137B253D5E8100AF6072 /* PlaceMarker.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		FF376931253E266C00332085 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FF376932253E26E800332085 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF376933253E26F000332085 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = "View Model";
 			sourceTree = "<group>";

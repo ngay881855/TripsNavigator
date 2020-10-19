@@ -10,6 +10,7 @@ import GoogleMaps
 
 protocol PlaceViewModelProtocol: AnyObject {
     func addGMSMarker(with marker: PlaceMarker)
+    func removeGMSMarker(with marker: PlaceMarker)
 }
 
 class PlaceViewModel {
@@ -38,10 +39,15 @@ class PlaceViewModel {
         guard let urlRequest = configUrlRequest(with: keyword) else {
             return
         }
+        
+        self.dataSource.forEach { marker in
+            self.delegate?.removeGMSMarker(with: marker)
+        }
+        self.dataSource.removeAll()
+        
         ServiceManager.manager.request([Place].self, withRequest: urlRequest) { result in
             switch result {
             case .success(let cities):
-                self.dataSource.removeAll()
                 cities.forEach { self.dataSource.append(PlaceMarker(place: $0)) }
                 DispatchQueue.main.async {
                     self.dataSource.forEach { marker in

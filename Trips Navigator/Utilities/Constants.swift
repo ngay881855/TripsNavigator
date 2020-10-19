@@ -9,6 +9,7 @@ import Foundation
 
 enum Constants {
     static let googleApiKey = "YOUR_API_KEY"
+    static let timerIntervalToSearch = 1.0
 }
 
 enum ProviderAPI {
@@ -23,6 +24,6 @@ enum ProviderAPI {
     ]
     static let headers = [
         "x-rapidapi-host": "spott.p.rapidapi.com",
-        "x-rapidapi-key": "e9e886cd17msh32062c46cf93125p1a1b79jsn312df2c8284f"
+        "x-rapidapi-key": "YOUR_API_KEY"
     ]
 }
