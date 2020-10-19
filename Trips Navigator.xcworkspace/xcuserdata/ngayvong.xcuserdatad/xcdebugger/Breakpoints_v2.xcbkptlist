@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "DD58CC82-F35B-4567-8EA9-D5DDBB15DC83"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D4073A98-8CDB-4ED1-B88D-2A552767E1D7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/Model/GoogleDataProvider.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "fetchPlacesNearCoordinate(_:radius:types:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1C3BBA74-16FF-4530-90D0-8BEDB2FC4DD1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View/GoogleMapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "didFail(withError:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3119F0FC-8844-4A95-9BE9-33FA957B0889"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View/GoogleMapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "received(location:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75E6EE29-7BC1-4FC1-A94D-CDEF952FD75D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View Model/PlaceViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "searchData(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "83A2D105-8368-4B14-9599-15E5A622E80A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View Model/PlaceViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "searchData(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CD6313C4-2ECB-41F0-B789-C6D5518A5099"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View Model/PlaceViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "searchData(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CD6313C4-2ECB-41F0-B789-C6D5518A5099 - d21a25e100924938"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Trips_Navigator.PlaceViewModel.searchData(with: Swift.String) -&gt; ()"
+                  moduleName = "Trips Navigator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ngayvong/Google%20Drive/Winter-2018/iOS%20Training%20Batch/Github/TripsNavigator/Trips%20Navigator/Screens/GoogleMap%20Search/View%20Model/PlaceViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "254">
+               </Location>
+               <Location
+                  uuid = "CD6313C4-2ECB-41F0-B789-C6D5518A5099 - d722b640b1dfb3a7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;Swift.Array&lt;Trips_Navigator.Place&gt;, Trips_Navigator.CustomError&gt;) -&gt; () in Trips_Navigator.PlaceViewModel.searchData(with: Swift.String) -&gt; ()"
+                  moduleName = "Trips Navigator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ngayvong/Google%20Drive/Winter-2018/iOS%20Training%20Batch/Github/TripsNavigator/Trips%20Navigator/Screens/GoogleMap%20Search/View%20Model/PlaceViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1E423B83-F12B-4415-9DFC-8250F31CA550"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View/GoogleMapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "addGMSMarker(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D7183E2-6BDB-474F-B70F-208E8613CE53"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View Model/PlaceViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "searchData(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8D7183E2-6BDB-474F-B70F-208E8613CE53 - 194ad213b3576a99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 () -&gt; () in closure #1 (Swift.Result&lt;Swift.Array&lt;Trips_Navigator.Place&gt;, Trips_Navigator.CustomError&gt;) -&gt; () in Trips_Navigator.PlaceViewModel.searchData(with: Swift.String) -&gt; ()"
+                  moduleName = "Trips Navigator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ngayvong/Google%20Drive/Winter-2018/iOS%20Training%20Batch/Github/TripsNavigator/Trips%20Navigator/Screens/GoogleMap%20Search/View%20Model/PlaceViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "48"
+                  endingLineNumber = "48"
+                  offsetFromSymbolStart = "29">
+               </Location>
+               <Location
+                  uuid = "8D7183E2-6BDB-474F-B70F-208E8613CE53 - 7700b686649bbc51"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Trips_Navigator.CustomGMSMarker) -&gt; () in closure #2 () -&gt; () in closure #1 (Swift.Result&lt;Swift.Array&lt;Trips_Navigator.Place&gt;, Trips_Navigator.CustomError&gt;) -&gt; () in Trips_Navigator.PlaceViewModel.searchData(with: Swift.String) -&gt; ()"
+                  moduleName = "Trips Navigator"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ngayvong/Google%20Drive/Winter-2018/iOS%20Training%20Batch/Github/TripsNavigator/Trips%20Navigator/Screens/GoogleMap%20Search/View%20Model/PlaceViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "49"
+                  endingLineNumber = "49"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9B4CDB9-E338-4EAA-9D8B-C20C973A1160"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View Model/PlaceViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "searchData(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3CA44449-58AB-4AFF-8DF8-3B50FB20149B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Trips Navigator/Screens/GoogleMap Search/View/GoogleMapViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "mapView(_:markerInfoContents:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
