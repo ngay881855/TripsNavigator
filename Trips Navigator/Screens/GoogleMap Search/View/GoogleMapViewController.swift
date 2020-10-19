@@ -5,13 +5,13 @@
 //  Created by Ngay Vong on 10/17/20.
 //
 
-import UIKit
 import GoogleMaps
+import UIKit
 
 class GoogleMapViewController: UIViewController {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var mapView: GMSMapView! {
+    @IBOutlet private weak var mapView: GMSMapView! {
         didSet {
             self.mapView.delegate = self
             self.mapView.isMyLocationEnabled = true
@@ -21,7 +21,7 @@ class GoogleMapViewController: UIViewController {
     
     // MARK: - Private properties
     private lazy var locationHandler = LocationHandler(delegate: self)
-    var viewModel: PlaceViewModel = PlaceViewModel()
+    var viewModel = PlaceViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,17 +58,6 @@ extension GoogleMapViewController: PlaceViewModelProtocol {
 
 extension GoogleMapViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
-        guard let placeMarker = marker as? PlaceMarker else {
-            return nil
-        }
-        
-        guard let infoView = UIView.viewFromNibName("PlaceMarkerView") as? PlaceMarkerView
-        else {
-            return nil
-        }
-        
-        infoView.nameLabel.text = placeMarker.name
-        infoView.populationLabel.text = String(placeMarker.population)
-        return infoView
+        return self.viewModel.createMarker(with: marker)
     }
 }

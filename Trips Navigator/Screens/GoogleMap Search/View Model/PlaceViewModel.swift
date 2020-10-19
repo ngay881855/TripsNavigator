@@ -8,27 +8,26 @@
 import Foundation
 import GoogleMaps
 
-protocol PlaceViewModelProtocol: class {
+protocol PlaceViewModelProtocol: AnyObject {
     func addGMSMarker(with marker: PlaceMarker)
 }
 
 class PlaceViewModel {
     
-    var delegate: PlaceViewModelProtocol?
+    weak var delegate: PlaceViewModelProtocol?
     
     // MARK: - Private properties
     var dataSource: [PlaceMarker] = []
     
-    
     func configUrlRequest(with keyword: String) -> URLRequest? {
         guard var urlComponents = URLComponents(string: ProviderAPI.baseUrl) else { return nil }
         ProviderAPI.parameters[ProviderAPI.query] = keyword
-        urlComponents.queryItems = ProviderAPI.parameters.map { (key, value) in
+        urlComponents.queryItems = ProviderAPI.parameters.map { key, value in
             URLQueryItem(name: key, value: value)
         }
         
-        guard let url = urlComponents.url else { return nil}
-        var urlRequest: URLRequest = URLRequest(url: url)
+        guard let url = urlComponents.url else { return nil }
+        var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.allHTTPHeaderFields = ProviderAPI.headers
         
@@ -43,15 +42,30 @@ class PlaceViewModel {
             switch result {
             case .success(let cities):
                 self.dataSource.removeAll()
-                cities.forEach { self.dataSource.append(PlaceMarker(place: $0))}
+                cities.forEach { self.dataSource.append(PlaceMarker(place: $0)) }
                 DispatchQueue.main.async {
                     self.dataSource.forEach { marker in
                         self.delegate?.addGMSMarker(with: marker)
                     }
                 }
+
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    func createMarker(with marker: GMSMarker) -> UIView? {
+        guard let placeMarker = marker as? PlaceMarker else {
+            return nil
+        }
+        
+        guard let infoView = UIView.viewFromNibName("PlaceMarkerView") as? PlaceMarkerView
+        else {
+            return nil
+        }
+        infoView.setupUI(withName: placeMarker.name, population: String(placeMarker.population))
+        
+        return infoView
     }
 }

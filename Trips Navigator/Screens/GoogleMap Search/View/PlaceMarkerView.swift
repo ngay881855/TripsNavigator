@@ -9,14 +9,11 @@ import UIKit
 
 class PlaceMarkerView: UIView {
 
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var populationLabel: UILabel!
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var populationLabel: UILabel!
+    
+    func setupUI(withName name: String, population: String) {
+        self.nameLabel.text = name
+        self.populationLabel.text = population
     }
-    */
-
 }

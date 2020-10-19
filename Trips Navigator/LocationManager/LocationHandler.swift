@@ -5,11 +5,11 @@
 //  Created by Ngay Vong on 10/16/20.
 //
 
-import UIKit
-import Foundation
 import CoreLocation
+import Foundation
+import UIKit
 
-protocol LocationHandlerDelegate: AlertHandlerProtocol {
+protocol LocationHandlerDelegate: AnyObject, AlertHandlerProtocol {
     func received(location: CLLocation)
     func didFail(withError error: Error)
 }
@@ -27,7 +27,7 @@ class LocationHandler: NSObject {
         return locationM
     }()
     
-    private var delegate: LocationHandlerDelegate?
+    private weak var delegate: LocationHandlerDelegate?
     
     // MARK: - Initializers
     init(delegate: LocationHandlerDelegate) {
@@ -43,15 +43,18 @@ class LocationHandler: NSObject {
             locationManager.requestAlwaysAuthorization()
             locationManager.requestWhenInUseAuthorization()
             locationManager.requestLocation()
+            
         case .restricted, .denied:
             self.delegate?.showAlert(title: "Location Denied", message: "Please provide access to location", buttons: [.cancel, .settings]) { _, type in
                 switch type {
                 case .settings:
                     UIApplication.shared.openSetting()
+                    
                 default:
                     break
                 }
             }
+            
         case .authorizedAlways, .authorizedWhenInUse:
             // Get user location
             self.locationManager.startUpdatingLocation()
@@ -62,10 +65,11 @@ class LocationHandler: NSObject {
     
     func getUserLocation() {
         guard CLLocationManager.locationServicesEnabled() else {
-            self.delegate?.showAlert(title: "Location disabled", message: "Please enable your location services", buttons: [.cancel, .settings]) { (_, type) in
+            self.delegate?.showAlert(title: "Location disabled", message: "Please enable your location services", buttons: [.cancel, .settings]) { _, type in
                 switch type {
                 case .settings:
                     UIApplication.shared.openSetting()
+                    
                 case .cancel:
                     print("cancel pressed")
                 }

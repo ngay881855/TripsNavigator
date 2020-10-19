@@ -21,9 +21,9 @@ extension AlertHandlerProtocol {
     func showAlert(title: String, message: String, buttons: [AlertButton] = [.cancel], completion: @escaping (UIAlertController, AlertButton) -> Void) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         buttons.forEach { button in
-            let action = UIAlertAction(title: button.rawValue.capitalized, style: .default, handler: { _ in
+            let action = UIAlertAction(title: button.rawValue.capitalized, style: .default) { _ in
                 completion(alert, button)
-            })
+            }
             alert.addAction(action)
         }
         

@@ -8,11 +8,19 @@
 import CoreLocation
 
 struct Place: Decodable {
-    var id: String
+    var identifier: String
     var type: String
     var name: String
     var population: Int
     var coordinates: Coordinates
+    
+    enum CodingKeys: String, CodingKey {
+        case identifier = "id"
+        case type
+        case name
+        case population
+        case coordinates
+    }
 }
 
 struct Coordinates: Decodable {

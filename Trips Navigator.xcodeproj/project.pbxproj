@@ -22,7 +22,6 @@
 		FF7E1373253D41DB00AF6072 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E1372253D41DB00AF6072 /* ServiceManager.swift */; };
 		FF7E1379253D579900AF6072 /* PlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E1378253D579900AF6072 /* PlaceViewModel.swift */; };
 		FF7E137C253D5E8100AF6072 /* PlaceMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E137B253D5E8100AF6072 /* PlaceMarker.swift */; };
-		FF7E137F253D722E00AF6072 /* MarkerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E137E253D722E00AF6072 /* MarkerViewController.swift */; };
 		FF7E1383253D753300AF6072 /* PlaceMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E1382253D753300AF6072 /* PlaceMarkerView.swift */; };
 		FF7E1386253D756100AF6072 /* PlaceMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7E1385253D756100AF6072 /* PlaceMarkerView.xib */; };
 		FF7E138C253D792B00AF6072 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E138B253D792B00AF6072 /* UIView+Ext.swift */; };
@@ -48,7 +47,6 @@
 		FF7E1372253D41DB00AF6072 /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		FF7E1378253D579900AF6072 /* PlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceViewModel.swift; sourceTree = "<group>"; };
 		FF7E137B253D5E8100AF6072 /* PlaceMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarker.swift; sourceTree = "<group>"; };
-		FF7E137E253D722E00AF6072 /* MarkerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerViewController.swift; sourceTree = "<group>"; };
 		FF7E1382253D753300AF6072 /* PlaceMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerView.swift; sourceTree = "<group>"; };
 		FF7E1385253D756100AF6072 /* PlaceMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceMarkerView.xib; sourceTree = "<group>"; };
 		FF7E138B253D792B00AF6072 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				FF28D80A253B75EF00A13F27 /* GoogleMapViewController.swift */,
-				FF7E137E253D722E00AF6072 /* MarkerViewController.swift */,
 				FF7E1382253D753300AF6072 /* PlaceMarkerView.swift */,
 				FF7E1385253D756100AF6072 /* PlaceMarkerView.xib */,
 			);
@@ -376,7 +373,6 @@
 				FF7E1379253D579900AF6072 /* PlaceViewModel.swift in Sources */,
 				FF7E136F253D413A00AF6072 /* Constants.swift in Sources */,
 				FF7E1361253D03E800AF6072 /* UIApplication+Ext.swift in Sources */,
-				FF7E137F253D722E00AF6072 /* MarkerViewController.swift in Sources */,
 				FF7E135D253D037600AF6072 /* AlertHandlerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
