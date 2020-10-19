@@ -39,6 +39,12 @@ class GoogleMapViewController: UIViewController {
 }
 
 // MARK: - Extensions
+extension GoogleMapViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+}
+
 extension GoogleMapViewController: LocationHandlerDelegate {
     func received(location: CLLocation) {
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)

@@ -11,9 +11,11 @@ class PlaceMarkerView: UIView {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var populationLabel: UILabel!
+    @IBOutlet private weak var scoreLabel: UILabel!
     
-    func setupUI(withName name: String, population: String) {
+    func setupUI(withName name: String, population: Int, score: Double) {
         self.nameLabel.text = name
-        self.populationLabel.text = population
+        self.populationLabel.text = String(population)
+        self.scoreLabel.text = String(score)
     }
 }

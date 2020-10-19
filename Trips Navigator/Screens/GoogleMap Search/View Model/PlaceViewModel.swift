@@ -64,7 +64,7 @@ class PlaceViewModel {
         else {
             return nil
         }
-        infoView.setupUI(withName: placeMarker.name, population: String(placeMarker.population))
+        infoView.setupUI(withName: placeMarker.name, population: placeMarker.population, score: placeMarker.score)
         
         return infoView
     }

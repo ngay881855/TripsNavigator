@@ -12,6 +12,7 @@ struct Place: Decodable {
     var type: String
     var name: String
     var population: Int
+    var score: Double
     var coordinates: Coordinates
     
     enum CodingKeys: String, CodingKey {
@@ -19,6 +20,7 @@ struct Place: Decodable {
         case type
         case name
         case population
+        case score
         case coordinates
     }
 }

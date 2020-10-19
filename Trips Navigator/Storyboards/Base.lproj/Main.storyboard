@@ -17,18 +17,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <searchBar contentMode="redraw" placeholder="Search city" translatesAutoresizingMaskIntoConstraints="NO" id="e9a-eh-5iG">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="8La-5A-Uo9"/>
+                                </connections>
+                            </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVc-S0-Yf0" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="e9a-eh-5iG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Fu-Em-7Tw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WVc-S0-Yf0" secondAttribute="bottom" id="6AM-3V-kzp"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WVc-S0-Yf0" secondAttribute="trailing" id="REu-Fb-XyK"/>
                             <constraint firstItem="WVc-S0-Yf0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Ucv-MA-VDy"/>
-                            <constraint firstItem="WVc-S0-Yf0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nfm-Gw-4Ab"/>
+                            <constraint firstItem="e9a-eh-5iG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gRB-Mu-90T"/>
+                            <constraint firstItem="e9a-eh-5iG" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="j9c-Rc-ygZ"/>
+                            <constraint firstItem="WVc-S0-Yf0" firstAttribute="top" secondItem="e9a-eh-5iG" secondAttribute="bottom" id="nfm-Gw-4Ab"/>
                         </constraints>
                     </view>
                     <connections>
@@ -37,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="35"/>
+            <point key="canvasLocation" x="134.78260869565219" y="34.821428571428569"/>
         </scene>
     </scenes>
     <resources>
