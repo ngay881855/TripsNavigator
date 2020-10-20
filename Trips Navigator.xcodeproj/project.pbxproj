@@ -8,12 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		C8C7B6A4F45D12184E6E12BA /* Pods_Trips_Navigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E499661D65C4B5B03E102B /* Pods_Trips_Navigator.framework */; };
+		FF259E5D253F2F0F00F4A530 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF259E5C253F2F0F00F4A530 /* PlaceView.swift */; };
 		FF28D807253B75EF00A13F27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D806253B75EF00A13F27 /* AppDelegate.swift */; };
 		FF28D809253B75EF00A13F27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D808253B75EF00A13F27 /* SceneDelegate.swift */; };
-		FF28D80B253B75EF00A13F27 /* GoogleMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D80A253B75EF00A13F27 /* GoogleMapViewController.swift */; };
+		FF28D80B253B75EF00A13F27 /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D80A253B75EF00A13F27 /* GoogleMapsViewController.swift */; };
 		FF28D80E253B75EF00A13F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D80C253B75EF00A13F27 /* Main.storyboard */; };
 		FF28D810253B75F100A13F27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF28D80F253B75F100A13F27 /* Assets.xcassets */; };
 		FF28D813253B75F100A13F27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D811253B75F100A13F27 /* LaunchScreen.storyboard */; };
+		FF37693F253E291700332085 /* AppleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37693E253E291700332085 /* AppleMapsViewController.swift */; };
+		FF376943253E405900332085 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF376942253E405900332085 /* PlaceAnnotationView.swift */; };
+		FF376946253E410400332085 /* PlaceAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF376945253E410400332085 /* PlaceAnnotation.swift */; };
+		FF376949253E434600332085 /* PlaceAnnotationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF376948253E434600332085 /* PlaceAnnotationView.xib */; };
+		FF376950253E496300332085 /* AppleMapsPlaceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37694F253E496300332085 /* AppleMapsPlaceViewModel.swift */; };
 		FF7E1359253D030100AF6072 /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E1358253D030100AF6072 /* LocationHandler.swift */; };
 		FF7E135D253D037600AF6072 /* AlertHandlerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E135C253D037600AF6072 /* AlertHandlerProtocol.swift */; };
 		FF7E1361253D03E800AF6072 /* UIApplication+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E1360253D03E800AF6072 /* UIApplication+Ext.swift */; };
@@ -31,14 +37,20 @@
 		14D6344DB0E0A4545BCEF8E8 /* Pods-Trips Navigator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trips Navigator.release.xcconfig"; path = "Target Support Files/Pods-Trips Navigator/Pods-Trips Navigator.release.xcconfig"; sourceTree = "<group>"; };
 		19F69FBF4D9275042F879655 /* Pods-Trips Navigator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trips Navigator.debug.xcconfig"; path = "Target Support Files/Pods-Trips Navigator/Pods-Trips Navigator.debug.xcconfig"; sourceTree = "<group>"; };
 		41E499661D65C4B5B03E102B /* Pods_Trips_Navigator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trips_Navigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF259E5C253F2F0F00F4A530 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
 		FF28D803253B75EF00A13F27 /* Trips Navigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trips Navigator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF28D806253B75EF00A13F27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF28D808253B75EF00A13F27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FF28D80A253B75EF00A13F27 /* GoogleMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapViewController.swift; sourceTree = "<group>"; };
+		FF28D80A253B75EF00A13F27 /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		FF28D80D253B75EF00A13F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF28D80F253B75F100A13F27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF28D812253B75F100A13F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF28D814253B75F100A13F27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF37693E253E291700332085 /* AppleMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapsViewController.swift; sourceTree = "<group>"; };
+		FF376942253E405900332085 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
+		FF376945253E410400332085 /* PlaceAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotation.swift; sourceTree = "<group>"; };
+		FF376948253E434600332085 /* PlaceAnnotationView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceAnnotationView.xib; sourceTree = "<group>"; };
+		FF37694F253E496300332085 /* AppleMapsPlaceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapsPlaceViewModel.swift; sourceTree = "<group>"; };
 		FF7E1358253D030100AF6072 /* LocationHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LocationHandler.swift; path = LocationManager/LocationHandler.swift; sourceTree = "<group>"; };
 		FF7E135C253D037600AF6072 /* AlertHandlerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlertHandlerProtocol.swift; path = AlertHandler/AlertHandlerProtocol.swift; sourceTree = "<group>"; };
 		FF7E1360253D03E800AF6072 /* UIApplication+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Ext.swift"; sourceTree = "<group>"; };
@@ -174,7 +186,7 @@
 		FF368B3D253CFCC500A83E9A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FF28D80A253B75EF00A13F27 /* GoogleMapViewController.swift */,
+				FF28D80A253B75EF00A13F27 /* GoogleMapsViewController.swift */,
 				FF7E1382253D753300AF6072 /* PlaceMarkerView.swift */,
 				FF7E1385253D756100AF6072 /* PlaceMarkerView.xib */,
 			);
@@ -193,6 +205,7 @@
 		FF376931253E266C00332085 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FF376945253E410400332085 /* PlaceAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +213,10 @@
 		FF376932253E26E800332085 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FF37693E253E291700332085 /* AppleMapsViewController.swift */,
+				FF376942253E405900332085 /* PlaceAnnotationView.swift */,
+				FF376948253E434600332085 /* PlaceAnnotationView.xib */,
+				FF259E5C253F2F0F00F4A530 /* PlaceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -207,6 +224,7 @@
 		FF376933253E26F000332085 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				FF37694F253E496300332085 /* AppleMapsPlaceViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -313,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF28D813253B75F100A13F27 /* LaunchScreen.storyboard in Resources */,
+				FF376949253E434600332085 /* PlaceAnnotationView.xib in Resources */,
 				FF28D810253B75F100A13F27 /* Assets.xcassets in Resources */,
 				FF7E1386253D756100AF6072 /* PlaceMarkerView.xib in Resources */,
 				FF28D80E253B75EF00A13F27 /* Main.storyboard in Resources */,
@@ -385,18 +404,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF376946253E410400332085 /* PlaceAnnotation.swift in Sources */,
 				FF7E1373253D41DB00AF6072 /* ServiceManager.swift in Sources */,
-				FF28D80B253B75EF00A13F27 /* GoogleMapViewController.swift in Sources */,
+				FF28D80B253B75EF00A13F27 /* GoogleMapsViewController.swift in Sources */,
+				FF376950253E496300332085 /* AppleMapsPlaceViewModel.swift in Sources */,
 				FF7E1365253D3B0C00AF6072 /* Place.swift in Sources */,
 				FF28D807253B75EF00A13F27 /* AppDelegate.swift in Sources */,
 				FF7E138C253D792B00AF6072 /* UIView+Ext.swift in Sources */,
 				FF28D809253B75EF00A13F27 /* SceneDelegate.swift in Sources */,
 				FF7E1383253D753300AF6072 /* PlaceMarkerView.swift in Sources */,
 				FF7E1359253D030100AF6072 /* LocationHandler.swift in Sources */,
+				FF376943253E405900332085 /* PlaceAnnotationView.swift in Sources */,
 				FF7E137C253D5E8100AF6072 /* PlaceMarker.swift in Sources */,
+				FF259E5D253F2F0F00F4A530 /* PlaceView.swift in Sources */,
 				FF7E1379253D579900AF6072 /* PlaceViewModel.swift in Sources */,
 				FF7E136F253D413A00AF6072 /* Constants.swift in Sources */,
 				FF7E1361253D03E800AF6072 /* UIApplication+Ext.swift in Sources */,
+				FF37693F253E291700332085 /* AppleMapsViewController.swift in Sources */,
 				FF7E135D253D037600AF6072 /* AlertHandlerProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

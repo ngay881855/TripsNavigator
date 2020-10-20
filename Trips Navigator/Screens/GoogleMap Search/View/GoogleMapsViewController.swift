@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GoogleMapsViewController.swift
 //  Trips Navigator
 //
 //  Created by Ngay Vong on 10/17/20.
@@ -8,7 +8,7 @@
 import GoogleMaps
 import UIKit
 
-class GoogleMapViewController: UIViewController {
+class GoogleMapsViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet private weak var mapView: GMSMapView! {
@@ -38,7 +38,7 @@ class GoogleMapViewController: UIViewController {
 }
 
 // MARK: - Extensions
-extension GoogleMapViewController: UISearchBarDelegate {
+extension GoogleMapsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         guard !searchText.isEmpty else { return }
         if let timer = self.timer {
@@ -50,7 +50,7 @@ extension GoogleMapViewController: UISearchBarDelegate {
     }
 }
 
-extension GoogleMapViewController: LocationHandlerDelegate {
+extension GoogleMapsViewController: LocationHandlerDelegate {
     func received(location: CLLocation) {
         mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
     }
@@ -60,7 +60,7 @@ extension GoogleMapViewController: LocationHandlerDelegate {
     }
 }
 
-extension GoogleMapViewController: PlaceViewModelProtocol {
+extension GoogleMapsViewController: PlaceViewModelProtocol {
     func addGMSMarker(with marker: PlaceMarker) {
         marker.map = mapView
     }
@@ -70,7 +70,7 @@ extension GoogleMapViewController: PlaceViewModelProtocol {
     }
 }
 
-extension GoogleMapViewController: GMSMapViewDelegate {
+extension GoogleMapsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, markerInfoContents marker: GMSMarker) -> UIView? {
         return self.placeViewModel.createMarker(with: marker)
     }

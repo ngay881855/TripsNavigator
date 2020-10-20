@@ -27,40 +27,11 @@
             </objects>
             <point key="canvasLocation" x="-1304" y="35"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="mVX-Sz-CBh">
-            <objects>
-                <tableViewController id="ft7-lW-Dp4" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mvE-MC-FBw">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="a8b-R3-Mwp">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a8b-R3-Mwp" id="Ugq-TG-s4b">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="ft7-lW-Dp4" id="KVx-le-jiF"/>
-                            <outlet property="delegate" destination="ft7-lW-Dp4" id="my8-4Q-gBv"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="fuQ-LU-ArL"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Q0b-yB-ham" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="243" y="-232"/>
-        </scene>
         <!--Google Maps-->
         <scene sceneID="GS1-KA-2W3">
             <objects>
                 <navigationController id="GjE-dN-0gu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Google Maps" image="google-icon" id="jUy-Th-H6o"/>
+                    <tabBarItem key="tabBarItem" title="Google Maps" image="google-logo" id="jUy-Th-H6o"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Zn-63-4Ht">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -77,23 +48,63 @@
         <scene sceneID="cyE-j8-VQx">
             <objects>
                 <navigationController id="QPT-oL-kgi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Apple Maps" image="applelogo" catalog="system" id="4b5-a2-Fv3"/>
+                    <tabBarItem key="tabBarItem" title="Apple Maps" image="apple-logo" id="4b5-a2-Fv3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3mf-1k-eBU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ft7-lW-Dp4" kind="relationship" relationship="rootViewController" id="WFt-3V-kSu"/>
+                        <segue destination="RXR-I8-hub" kind="relationship" relationship="rootViewController" id="cje-EP-Cij"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ME-IW-zal" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-543" y="-232"/>
         </scene>
-        <!--Google Map View Controller-->
+        <!--Apple Maps View Controller-->
+        <scene sceneID="1d1-le-O8M">
+            <objects>
+                <viewController storyboardIdentifier="AppleMapsViewController" id="RXR-I8-hub" customClass="AppleMapsViewController" customModule="Trips_Navigator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3yT-B2-3vh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G3o-ka-Yi0">
+                                <rect key="frame" x="0.0" y="144" width="414" height="669"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="x0f-vz-aEz">
+                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RXR-I8-hub" id="pFC-f9-QAO"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fpv-b3-guX"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fpv-b3-guX" firstAttribute="trailing" secondItem="G3o-ka-Yi0" secondAttribute="trailing" id="I5a-St-Tej"/>
+                            <constraint firstItem="fpv-b3-guX" firstAttribute="bottom" secondItem="G3o-ka-Yi0" secondAttribute="bottom" id="N7y-7h-A2E"/>
+                            <constraint firstItem="G3o-ka-Yi0" firstAttribute="top" secondItem="x0f-vz-aEz" secondAttribute="bottom" id="OnT-fG-IIS"/>
+                            <constraint firstItem="G3o-ka-Yi0" firstAttribute="leading" secondItem="fpv-b3-guX" secondAttribute="leading" id="YdH-Wb-LNL"/>
+                            <constraint firstItem="x0f-vz-aEz" firstAttribute="trailing" secondItem="fpv-b3-guX" secondAttribute="trailing" id="i46-Yf-2OZ"/>
+                            <constraint firstItem="x0f-vz-aEz" firstAttribute="leading" secondItem="fpv-b3-guX" secondAttribute="leading" id="kea-3k-WJ4"/>
+                            <constraint firstItem="x0f-vz-aEz" firstAttribute="top" secondItem="fpv-b3-guX" secondAttribute="top" id="tFG-4D-bnK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="UPl-Lb-hD0"/>
+                    <connections>
+                        <outlet property="mapView" destination="G3o-ka-Yi0" id="NBh-o6-7ro"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pVD-uH-aYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="241" y="-232"/>
+        </scene>
+        <!--Google Maps View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="GoogleMapViewController" customModule="Trips_Navigator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="GoogleMapsViewController" customModule="Trips_Navigator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,8 +144,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="applelogo" catalog="system" width="128" height="121"/>
-        <image name="google-icon" width="30" height="30"/>
+        <image name="apple-logo" width="30" height="30"/>
+        <image name="google-logo" width="30" height="30"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

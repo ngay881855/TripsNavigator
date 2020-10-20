@@ -9,6 +9,7 @@ import Foundation
 import GoogleMaps
 
 class PlaceMarker: GMSMarker {
+    
     let population: Int
     let name: String
     let score: Double
