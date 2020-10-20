@@ -95,6 +95,7 @@
                     <navigationItem key="navigationItem" id="UPl-Lb-hD0"/>
                     <connections>
                         <outlet property="mapView" destination="G3o-ka-Yi0" id="NBh-o6-7ro"/>
+                        <outlet property="searchBar" destination="x0f-vz-aEz" id="86M-KP-ewx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVD-uH-aYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

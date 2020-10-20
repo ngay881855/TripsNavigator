@@ -11,9 +11,10 @@ import MapKit
 protocol AppleMapsPlaceViewModelProtocol: AnyObject {
     func addAnnotation(with annotation: MKAnnotation)
     func removeAnnotation(with annotation: MKAnnotation)
+    func updateSearchCompleter(results: [MKLocalSearchCompletion])
 }
 
-class AppleMapsPlaceViewModel {
+class AppleMapsPlaceViewModel: NSObject {
     
     weak var delegate: AppleMapsPlaceViewModelProtocol?
     
@@ -22,6 +23,14 @@ class AppleMapsPlaceViewModel {
     private var searchRequest = MKLocalSearch.Request()
     private var search: MKLocalSearch?
     private var searchOption = SearchOptions.fromLocal
+    private var searchCompleter = MKLocalSearchCompleter()
+    
+    var searchResults: [MKLocalSearchCompletion] = []
+    
+    override init() {
+        super.init()
+        searchCompleter.delegate = self
+    }
     
     func configUrlRequest(with keyword: String) -> URLRequest? {
         guard var urlComponents = URLComponents(string: ProviderAPI.baseUrl) else { return nil }
@@ -79,6 +88,8 @@ class AppleMapsPlaceViewModel {
     }
     
     private func searchFromLocal(with keyword: String) {
+        searchCompleter.queryFragment = keyword
+        p
         searchRequest.naturalLanguageQuery = keyword
         
         self.removeAllAnnotations()
@@ -171,5 +182,16 @@ class AppleMapsPlaceViewModel {
         annotationView?.image = annotation.image
         
         return annotationView
+    }
+}
+
+extension AppleMapsPlaceViewModel: MKLocalSearchCompleterDelegate {
+    func completerDidUpdateResults(_ completer: MKLocalSearchCompleter) {
+        searchResults = completer.results
+        self.delegate?.updateSearchCompleter(results: searchResults)
+    }
+    
+    private func completer(completer: MKLocalSearchCompleter, didFailWithError error: NSError) {
+        print(error)
     }
 }

@@ -18,6 +18,7 @@ class AppleMapsViewController: UIViewController {
             self.mapView.delegate = self
         }
     }
+    @IBOutlet private weak var searchBar: UISearchBar!
     
     // MARK: - Public properties
     var placeViewModel = AppleMapsPlaceViewModel()
@@ -94,6 +95,10 @@ extension AppleMapsViewController: UISearchBarDelegate {
 
 // MARK: AppleMapsPlaceViewModelProtocol
 extension AppleMapsViewController: AppleMapsPlaceViewModelProtocol {
+    func updateSearchCompleter(results: [MKLocalSearchCompletion]) {
+        self.searchBar.text = results.first?.title
+    }
+    
     func addAnnotation(with annotation: MKAnnotation) {
         self.mapView.addAnnotation(annotation)
     }
