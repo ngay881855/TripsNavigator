@@ -9,8 +9,8 @@ import Foundation
 import MapKit
 
 protocol AppleMapsPlaceViewModelProtocol: AnyObject {
-    func addAnnotation(with annotation: PlaceAnnotation)
-    func removeAnnotation(with annotation: PlaceAnnotation)
+    func addAnnotation(with annotation: MKAnnotation)
+    func removeAnnotation(with annotation: MKAnnotation)
 }
 
 class AppleMapsPlaceViewModel {
@@ -18,10 +18,10 @@ class AppleMapsPlaceViewModel {
     weak var delegate: AppleMapsPlaceViewModelProtocol?
     
     // MARK: - Private properties
-    private var dataSource: [PlaceAnnotation] = []
+    private var dataSource: [MKAnnotation] = []
     private var searchRequest = MKLocalSearch.Request()
     private var search: MKLocalSearch?
-    private var searchOption = SearchOptions.fromAPI
+    private var searchOption = SearchOptions.fromLocal
     
     func configUrlRequest(with keyword: String) -> URLRequest? {
         guard var urlComponents = URLComponents(string: ProviderAPI.baseUrl) else { return nil }
@@ -60,7 +60,6 @@ class AppleMapsPlaceViewModel {
         }
         
         removeAllAnnotations()
-        
         self.dataSource.removeAll()
         
         ServiceManager.manager.request([Place].self, withRequest: urlRequest) { result in
@@ -82,6 +81,9 @@ class AppleMapsPlaceViewModel {
     private func searchFromLocal(with keyword: String) {
         searchRequest.naturalLanguageQuery = keyword
         
+        self.removeAllAnnotations()
+        self.dataSource.removeAll()
+        
         if let search = self.search, search.isSearching {
             search.cancel()
             self.search = MKLocalSearch(request: searchRequest)
@@ -95,12 +97,8 @@ class AppleMapsPlaceViewModel {
                 return
             }
             
-            self.removeAllAnnotations()
-
             for item in response.mapItems {
-                let coordinate = Coordinates(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude)
-                let place = Place(identifier: item.name ?? "", type: "", name: item.name ?? "", population: 0, score: 0, coordinates: coordinate)
-                let placeAnnotation = PlaceAnnotation(place: place)
+                let placeAnnotation = LocalSearchAnnotation(mapItem: item)
                 self.dataSource.append(placeAnnotation)
             }
             DispatchQueue.main.async {
@@ -112,23 +110,66 @@ class AppleMapsPlaceViewModel {
     }
     
     func createAnnotationView(viewFor annotation: MKAnnotation, mapView: MKMapView) -> MKAnnotationView? {
-        guard let placeAnnotation = annotation as? PlaceAnnotation else { return nil }
+        var annotationView: MKAnnotationView?
+        if let placeAnnotation = annotation as? PlaceAnnotation {
+            annotationView = self.createAPISearchAnnotationView(annotation: placeAnnotation, mapView: mapView)
+        } else if let localSearchAnnotation = annotation as? LocalSearchAnnotation {
+            annotationView = self.createLocalSearchAnnotationView(annotation: localSearchAnnotation, mapView: mapView)
+        }
+        
+        return annotationView
+    }
+    
+    private func createLocalSearchAnnotationView(annotation: LocalSearchAnnotation, mapView: MKMapView) -> MKAnnotationView? {
+        var annotationView: MKAnnotationView?
+        var website = String()
+        if let url = annotation.mapItem?.url {
+            website = String(describing: url)
+        }
         
         let detailLabel = UILabel()
         detailLabel.numberOfLines = 0
         detailLabel.font = detailLabel.font.withSize(12)
-        detailLabel.text = "Score: \(placeAnnotation.score) \nPopulation: \(placeAnnotation.population)"
-        
-        if let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceView") {
-            annotationView.detailCalloutAccessoryView = detailLabel
-            return annotationView
+        detailLabel.text = "Phone: \(annotation.mapItem?.phoneNumber ?? "") \nWebsite: \(website)"
+        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceView") {
+            dequeuedAnnotationView.detailCalloutAccessoryView = detailLabel
+            annotationView = dequeuedAnnotationView
         } else {
-            var annotationView: MKAnnotationView
-            annotationView = MKMarkerAnnotationView(annotation: placeAnnotation, reuseIdentifier: "PlaceView")
-            annotationView.canShowCallout = true
-            annotationView.detailCalloutAccessoryView = detailLabel
+            var defaultAnnotationView: MKAnnotationView
+            defaultAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PlaceView")
+            defaultAnnotationView.canShowCallout = true
+            defaultAnnotationView.detailCalloutAccessoryView = detailLabel
             
-            return annotationView
+            annotationView = defaultAnnotationView
         }
+        annotationView?.image = annotation.image
+        
+        return annotationView
+    }
+    
+    private func createAPISearchAnnotationView(annotation: PlaceAnnotation, mapView: MKMapView) -> MKAnnotationView? {
+        var annotationView: MKAnnotationView?
+        
+        let detailLabel = UILabel()
+        detailLabel.numberOfLines = 0
+        detailLabel.font = detailLabel.font.withSize(12)
+        detailLabel.text = "Score: \(annotation.score) \nPopulation: \(annotation.population)"
+        
+        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceView") {
+            dequeuedAnnotationView.detailCalloutAccessoryView = detailLabel
+            annotationView = dequeuedAnnotationView
+        } else {
+            var defaultAnnotationView: MKAnnotationView
+            defaultAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PlaceView")
+            
+            defaultAnnotationView.canShowCallout = true
+            defaultAnnotationView.detailCalloutAccessoryView = detailLabel
+            
+            annotationView = defaultAnnotationView
+        }
+        
+        annotationView?.image = annotation.image
+        
+        return annotationView
     }
 }

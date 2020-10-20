@@ -13,18 +13,17 @@ class PlaceAnnotation: NSObject, MKAnnotation {
     let score: Double
     let coordinate: CLLocationCoordinate2D
     let title: String?
-    var mapItem: MKMapItem? {
-        let placeMark = MKPlacemark(coordinate: coordinate)
-        let mapItem = MKMapItem(placemark: placeMark)
-        mapItem.name = title
-        return mapItem
-    }
-    
+
     init(place: Place) {
         self.coordinate = place.coordinates.coordinates
         self.title = place.name
         self.population = place.population
         self.score = place.score
         super.init()
+    }
+    
+    // swiftlint:disable discouraged_object_literal
+    var image: UIImage {
+        return #imageLiteral(resourceName: "default")
     }
 }

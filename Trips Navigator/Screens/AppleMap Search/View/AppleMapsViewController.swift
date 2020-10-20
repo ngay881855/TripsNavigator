@@ -59,12 +59,12 @@ extension AppleMapsViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-        guard let placeAnnotation = view.annotation as? PlaceAnnotation else {
+        guard let annotation = view.annotation else {
             return
         }
         
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        placeAnnotation.mapItem?.openInMaps(launchOptions: launchOptions)
+        annotation.mapItem?.openInMaps(launchOptions: launchOptions)
     }
 }
 
@@ -94,11 +94,11 @@ extension AppleMapsViewController: UISearchBarDelegate {
 
 // MARK: AppleMapsPlaceViewModelProtocol
 extension AppleMapsViewController: AppleMapsPlaceViewModelProtocol {
-    func addAnnotation(with annotation: PlaceAnnotation) {
+    func addAnnotation(with annotation: MKAnnotation) {
         self.mapView.addAnnotation(annotation)
     }
     
-    func removeAnnotation(with annotation: PlaceAnnotation) {
+    func removeAnnotation(with annotation: MKAnnotation) {
         self.mapView.removeAnnotation(annotation)
     }
 }

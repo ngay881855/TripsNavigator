@@ -32,6 +32,8 @@
 		FF7E1383253D753300AF6072 /* PlaceMarkerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E1382253D753300AF6072 /* PlaceMarkerView.swift */; };
 		FF7E1386253D756100AF6072 /* PlaceMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF7E1385253D756100AF6072 /* PlaceMarkerView.xib */; };
 		FF7E138C253D792B00AF6072 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7E138B253D792B00AF6072 /* UIView+Ext.swift */; };
+		FFC1BA7B253F91F9007B26AF /* LocalSearchAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1BA7A253F91F9007B26AF /* LocalSearchAnnotation.swift */; };
+		FFC1BA82253FA739007B26AF /* MKAnnotation+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC1BA81253FA739007B26AF /* MKAnnotation+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,8 @@
 		FF7E1382253D753300AF6072 /* PlaceMarkerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceMarkerView.swift; sourceTree = "<group>"; };
 		FF7E1385253D756100AF6072 /* PlaceMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlaceMarkerView.xib; sourceTree = "<group>"; };
 		FF7E138B253D792B00AF6072 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		FFC1BA7A253F91F9007B26AF /* LocalSearchAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchAnnotation.swift; sourceTree = "<group>"; };
+		FFC1BA81253FA739007B26AF /* MKAnnotation+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKAnnotation+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				FF376945253E410400332085 /* PlaceAnnotation.swift */,
+				FFC1BA7A253F91F9007B26AF /* LocalSearchAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			children = (
 				FF7E1360253D03E800AF6072 /* UIApplication+Ext.swift */,
 				FF7E138B253D792B00AF6072 /* UIView+Ext.swift */,
+				FFC1BA81253FA739007B26AF /* MKAnnotation+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -409,6 +415,7 @@
 			files = (
 				FF376946253E410400332085 /* PlaceAnnotation.swift in Sources */,
 				FF7E1373253D41DB00AF6072 /* ServiceManager.swift in Sources */,
+				FFC1BA7B253F91F9007B26AF /* LocalSearchAnnotation.swift in Sources */,
 				FF28D80B253B75EF00A13F27 /* GoogleMapsViewController.swift in Sources */,
 				FF376950253E496300332085 /* AppleMapsPlaceViewModel.swift in Sources */,
 				FF7E1365253D3B0C00AF6072 /* Place.swift in Sources */,
@@ -416,6 +423,7 @@
 				FF7E138C253D792B00AF6072 /* UIView+Ext.swift in Sources */,
 				FF28D809253B75EF00A13F27 /* SceneDelegate.swift in Sources */,
 				FF7E1383253D753300AF6072 /* PlaceMarkerView.swift in Sources */,
+				FFC1BA82253FA739007B26AF /* MKAnnotation+Ext.swift in Sources */,
 				FF259E60253F3F8500F4A530 /* SearchOptions.swift in Sources */,
 				FF7E1359253D030100AF6072 /* LocationHandler.swift in Sources */,
 				FF376943253E405900332085 /* PlaceAnnotationView.swift in Sources */,
