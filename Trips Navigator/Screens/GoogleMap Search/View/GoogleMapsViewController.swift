@@ -27,13 +27,15 @@ class GoogleMapsViewController: UIViewController {
     // MARK: - Public properties
     var placeViewModel = PlaceViewModel()
     
+    // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
+        // Do any additional setup after loading the view.
         self.locationHandler.getUserLocation()
         self.placeViewModel.delegate = self
-        self.navigationItem.titleView = UIView()
+        
+        self.title = "Trips Navigator"
     }
 }
 
@@ -52,7 +54,7 @@ extension GoogleMapsViewController: UISearchBarDelegate {
 
 extension GoogleMapsViewController: LocationHandlerDelegate {
     func received(location: CLLocation) {
-        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+        mapView.camera = GMSCameraPosition(target: location.coordinate, zoom: 10, bearing: 0, viewingAngle: 0)
     }
     
     func didFail(withError error: Error) {

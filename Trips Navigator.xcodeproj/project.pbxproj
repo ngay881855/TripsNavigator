@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C8C7B6A4F45D12184E6E12BA /* Pods_Trips_Navigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41E499661D65C4B5B03E102B /* Pods_Trips_Navigator.framework */; };
 		FF259E5D253F2F0F00F4A530 /* PlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF259E5C253F2F0F00F4A530 /* PlaceView.swift */; };
+		FF259E60253F3F8500F4A530 /* SearchOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF259E5F253F3F8500F4A530 /* SearchOptions.swift */; };
 		FF28D807253B75EF00A13F27 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D806253B75EF00A13F27 /* AppDelegate.swift */; };
 		FF28D809253B75EF00A13F27 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D808253B75EF00A13F27 /* SceneDelegate.swift */; };
 		FF28D80B253B75EF00A13F27 /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF28D80A253B75EF00A13F27 /* GoogleMapsViewController.swift */; };
@@ -38,6 +39,7 @@
 		19F69FBF4D9275042F879655 /* Pods-Trips Navigator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trips Navigator.debug.xcconfig"; path = "Target Support Files/Pods-Trips Navigator/Pods-Trips Navigator.debug.xcconfig"; sourceTree = "<group>"; };
 		41E499661D65C4B5B03E102B /* Pods_Trips_Navigator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trips_Navigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF259E5C253F2F0F00F4A530 /* PlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceView.swift; sourceTree = "<group>"; };
+		FF259E5F253F3F8500F4A530 /* SearchOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptions.swift; sourceTree = "<group>"; };
 		FF28D803253B75EF00A13F27 /* Trips Navigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trips Navigator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF28D806253B75EF00A13F27 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF28D808253B75EF00A13F27 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			isa = PBXGroup;
 			children = (
 				FF7E136E253D413A00AF6072 /* Constants.swift */,
+				FF259E5F253F3F8500F4A530 /* SearchOptions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				FF7E138C253D792B00AF6072 /* UIView+Ext.swift in Sources */,
 				FF28D809253B75EF00A13F27 /* SceneDelegate.swift in Sources */,
 				FF7E1383253D753300AF6072 /* PlaceMarkerView.swift in Sources */,
+				FF259E60253F3F8500F4A530 /* SearchOptions.swift in Sources */,
 				FF7E1359253D030100AF6072 /* LocationHandler.swift in Sources */,
 				FF376943253E405900332085 /* PlaceAnnotationView.swift in Sources */,
 				FF7E137C253D5E8100AF6072 /* PlaceMarker.swift in Sources */,
