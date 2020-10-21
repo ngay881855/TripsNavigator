@@ -5,6 +5,7 @@
 //  Created by Ngay Vong on 10/19/20.
 //
 
+import CoreLocation
 import Foundation
 import MapKit
 
@@ -24,12 +25,19 @@ class AppleMapsPlaceViewModel: NSObject {
     private var search: MKLocalSearch?
     private var searchOption = SearchOptions.fromLocal
     private var searchCompleter = MKLocalSearchCompleter()
+    private var geoCoder = CLGeocoder()
     
     var searchResults: [MKLocalSearchCompletion] = []
     
     override init() {
         super.init()
         searchCompleter.delegate = self
+        if geoCoder.isGeocoding {
+            geoCoder.cancelGeocode()
+        }
+        geoCoder.geocodeAddressString("1 Infinite Loop, Cupertino, CA") { placeMarks, error in
+            self.processGeoCoderResponse(withPlaceMarks: placeMarks, error: error)
+        }
     }
     
     func configUrlRequest(with keyword: String) -> URLRequest? {
@@ -48,6 +56,9 @@ class AppleMapsPlaceViewModel: NSObject {
     }
     
     func searchData(with keyword: String) {
+        
+        searchCompleter.queryFragment = keyword
+        
         switch searchOption {
         case .fromAPI:
             searchFromAPI(with: keyword)
@@ -88,8 +99,6 @@ class AppleMapsPlaceViewModel: NSObject {
     }
     
     private func searchFromLocal(with keyword: String) {
-        searchCompleter.queryFragment = keyword
-        p
         searchRequest.naturalLanguageQuery = keyword
         
         self.removeAllAnnotations()
@@ -193,5 +202,30 @@ extension AppleMapsPlaceViewModel: MKLocalSearchCompleterDelegate {
     
     private func completer(completer: MKLocalSearchCompleter, didFailWithError error: NSError) {
         print(error)
+    }
+}
+
+extension AppleMapsPlaceViewModel {
+    private func processGeoCoderResponse(withPlaceMarks placeMarks: [CLPlacemark]?, error: Error?) {
+        if let placeMarks = placeMarks, !placeMarks.isEmpty {
+            if let location = placeMarks.first?.location {
+                geoCoder.reverseGeocodeLocation(location) { placeMarks, error in
+                    self.processReversedGeoCoderResponse(withPlaceMarks: placeMarks, error: error)
+                }
+                print("\(location.coordinate.latitude), \(location.coordinate.longitude)")
+            }
+        } else {
+            print("No result")
+        }
+    }
+    
+    private func processReversedGeoCoderResponse(withPlaceMarks placeMarks: [CLPlacemark]?, error: Error?) {
+        if let placeMarks = placeMarks, !placeMarks.isEmpty {
+            if let placeMark = placeMarks.first {
+                print("\(String(describing: placeMark.name)), \(String(describing: placeMark.postalCode))")
+            }
+        } else {
+            print("No result")
+        }
     }
 }
