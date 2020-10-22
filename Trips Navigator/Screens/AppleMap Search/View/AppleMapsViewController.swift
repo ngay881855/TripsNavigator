@@ -45,8 +45,9 @@ class AppleMapsViewController: UIViewController {
         self.placeViewModel.delegate = self
         
         self.mapView.register(
-            PlaceView.self,
-            forAnnotationViewWithReuseIdentifier: "PlaceView")
+            PlaceAnnotationView.self,
+            forAnnotationViewWithReuseIdentifier: PlaceAnnotationView.reuseIdentifier)
+        self.mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: CustomAnnotationView.reuseIdentifier)
         
         self.title = "Trips Navigator"
     }
@@ -56,6 +57,11 @@ class AppleMapsViewController: UIViewController {
 // MARK: MKMapViewDelegate
 extension AppleMapsViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if #available(iOS 11.0, *) {
+            if annotation is MKClusterAnnotation {
+                return nil
+            }
+        }
         return self.placeViewModel.createAnnotationView(viewFor: annotation, mapView: self.mapView)
     }
     

@@ -14,3 +14,9 @@ extension UIView {
       return views?.first as? UIView
     }
 }
+
+extension UIView {
+    static var reuseIdentifier: String {
+        String(describing: self)
+    }
+}

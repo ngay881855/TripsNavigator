@@ -92,7 +92,9 @@
                             <constraint firstItem="x0f-vz-aEz" firstAttribute="top" secondItem="fpv-b3-guX" secondAttribute="top" id="tFG-4D-bnK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UPl-Lb-hD0"/>
+                    <navigationItem key="navigationItem" id="UPl-Lb-hD0">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="ImC-zS-2ho"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="G3o-ka-Yi0" id="NBh-o6-7ro"/>
                         <outlet property="searchBar" destination="x0f-vz-aEz" id="86M-KP-ewx"/>

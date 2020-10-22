@@ -141,30 +141,15 @@ class AppleMapsPlaceViewModel: NSObject {
     }
     
     private func createLocalSearchAnnotationView(annotation: LocalSearchAnnotation, mapView: MKMapView) -> MKAnnotationView? {
-        var annotationView: MKAnnotationView?
-        var website = String()
-        if let url = annotation.mapItem?.url {
-            website = String(describing: url)
-        }
-        
-        let detailLabel = UILabel()
-        detailLabel.numberOfLines = 0
-        detailLabel.font = detailLabel.font.withSize(12)
-        detailLabel.text = "Phone: \(annotation.mapItem?.phoneNumber ?? "") \nWebsite: \(website)"
-        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceView") {
-            dequeuedAnnotationView.detailCalloutAccessoryView = detailLabel
-            annotationView = dequeuedAnnotationView
+        var pin = mapView.dequeueReusableAnnotationView(withIdentifier: CustomAnnotationView.reuseIdentifier)
+        if pin == nil {
+            pin = CustomAnnotationView(annotation: annotation, reuseIdentifier: CustomAnnotationView.reuseIdentifier)
         } else {
-            var defaultAnnotationView: MKAnnotationView
-            defaultAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PlaceView")
-            defaultAnnotationView.canShowCallout = true
-            defaultAnnotationView.detailCalloutAccessoryView = detailLabel
-            
-            annotationView = defaultAnnotationView
+            pin?.annotation = annotation
         }
-        annotationView?.image = annotation.image
+        pin?.image = annotation.image
         
-        return annotationView
+        return pin
     }
     
     private func createAPISearchAnnotationView(annotation: PlaceAnnotation, mapView: MKMapView) -> MKAnnotationView? {
@@ -175,12 +160,12 @@ class AppleMapsPlaceViewModel: NSObject {
         detailLabel.font = detailLabel.font.withSize(12)
         detailLabel.text = "Score: \(annotation.score) \nPopulation: \(annotation.population)"
         
-        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "PlaceView") {
+        if let dequeuedAnnotationView = mapView.dequeueReusableAnnotationView(withIdentifier: PlaceAnnotationView.reuseIdentifier) {
             dequeuedAnnotationView.detailCalloutAccessoryView = detailLabel
             annotationView = dequeuedAnnotationView
         } else {
             var defaultAnnotationView: MKAnnotationView
-            defaultAnnotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: "PlaceView")
+            defaultAnnotationView = PlaceAnnotationView(annotation: annotation, reuseIdentifier: PlaceAnnotationView.reuseIdentifier)
             
             defaultAnnotationView.canShowCallout = true
             defaultAnnotationView.detailCalloutAccessoryView = detailLabel
