@@ -6,7 +6,6 @@
 //
 
 import CoreLocation
-import Foundation
 import UIKit
 
 protocol LocationHandlerDelegate: AnyObject, AlertHandlerProtocol {

@@ -24,10 +24,10 @@ class CustomAnnotationView: MKAnnotationView {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
         
         canShowCallout = false
+        setNeedsLayout()
+        layoutIfNeeded()
         
-        let mapsButton = UIButton(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: 48, height: 48)))
-        mapsButton.setBackgroundImage(UIImage(named: "Map"), for: .normal)
-        rightCalloutAccessoryView = mapsButton
+        layoutSubviews()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -61,7 +61,9 @@ class CustomAnnotationView: MKAnnotationView {
                 }
             }
         } else {
-            guard let calloutView = self.calloutView else { return }
+            guard let calloutView = self.calloutView else {
+                return
+            }
             
             // swiftlint:disable multiline_arguments
             if animated {
@@ -83,7 +85,10 @@ class CustomAnnotationView: MKAnnotationView {
     }
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-        if let hitView = super.hitTest(point, with: event) { return hitView }
+        self.calloutView?.removeMe = true
+        if let hitView = super.hitTest(point, with: event) {
+            return hitView
+        }
 
         if let calloutView = calloutView {
             let pointInCalloutView = convert(point, to: calloutView)

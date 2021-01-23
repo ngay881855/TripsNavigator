@@ -133,6 +133,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="lkB-yS-rwK"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="tVz-rZ-W4C" secondAttribute="bottom" constant="3" id="9Iu-jW-phl"/>
                 <constraint firstAttribute="trailing" secondItem="tVz-rZ-W4C" secondAttribute="trailing" constant="3" id="PO0-iU-SVO"/>
@@ -146,9 +147,16 @@
                 <outlet property="phoneLabel" destination="mle-Pg-6d9" id="FGV-uh-UJf"/>
                 <outlet property="safariButton" destination="ExB-ba-imx" id="uoY-PF-t5S"/>
                 <outlet property="urlLabel" destination="ahZ-3v-CVp" id="4Ap-Pa-6rv"/>
+                <outlet property="viewTapGestureRecognizer" destination="vHq-oP-UWo" id="aBO-Kl-uWz"/>
+                <outletCollection property="gestureRecognizers" destination="vHq-oP-UWo" appends="YES" id="tEM-Mn-p6l"/>
             </connections>
             <point key="canvasLocation" x="190.57971014492756" y="62.946428571428569"/>
         </view>
+        <tapGestureRecognizer id="vHq-oP-UWo">
+            <connections>
+                <action selector="gestureTapped:" destination="yEB-GK-Q0s" id="FnX-Oc-haX"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="phone" width="30" height="30"/>

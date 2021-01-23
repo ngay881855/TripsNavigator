@@ -9,12 +9,14 @@ import SafariServices
 import UIKit
 
 class PlaceDetailView: UIView, SFSafariViewControllerDelegate {
-
+    var removeMe = true
+    
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var phoneLabel: UILabel!
     @IBOutlet private weak var urlLabel: UILabel!
     @IBOutlet private weak var callButton: UIButton!
     @IBOutlet private weak var safariButton: UIButton!
+    @IBOutlet private weak var viewTapGestureRecognizer: UITapGestureRecognizer!
     
     private let bubbleLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
@@ -52,5 +54,9 @@ class PlaceDetailView: UIView, SFSafariViewControllerDelegate {
             return
         }
         UIApplication.shared.open(url)
+    }
+    
+    @IBAction private func gestureTapped(_ sender: Any) {
+        self.removeMe = false
     }
 }

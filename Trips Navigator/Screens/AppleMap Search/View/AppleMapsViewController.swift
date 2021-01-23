@@ -18,10 +18,19 @@ class AppleMapsViewController: UIViewController {
             self.mapView.delegate = self
         }
     }
+    
+    @IBOutlet private weak var tableView: UITableView! {
+        didSet {
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+        }
+    }
+    
     @IBOutlet private weak var searchBar: UISearchBar!
     
     // MARK: - Public properties
     var placeViewModel = AppleMapsPlaceViewModel()
+    var tableViewModel = SearchCompletionTableViewModel()
     
     // MARK: - Private properties
     private lazy var locationHandler = LocationHandler(delegate: self)
@@ -36,20 +45,29 @@ class AppleMapsViewController: UIViewController {
     // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        let buttonItem = MKUserTrackingBarButtonItem(mapView: self.mapView)
-        self.navigationItem.rightBarButtonItem = buttonItem
+//        let buttonItem = MKUserTrackingBarButtonItem(mapView: self.mapView)
+//        self.navigationItem.rightBarButtonItem = buttonItem
         
         self.locationHandler.getUserLocation()
         self.placeViewModel.delegate = self
+        self.tableViewModel.delegate = self
         
         self.mapView.register(
             PlaceAnnotationView.self,
             forAnnotationViewWithReuseIdentifier: PlaceAnnotationView.reuseIdentifier)
         self.mapView.register(CustomAnnotationView.self, forAnnotationViewWithReuseIdentifier: CustomAnnotationView.reuseIdentifier)
         
+        setupTableViewUI()
+
         self.title = "Trips Navigator"
+    }
+    
+    // MARK: - UISetup/Helpers/Actions
+    private func setupTableViewUI() {
+        tableView.tableFooterView = UIView()
+        tableView.isHidden = true
+        tableView.backgroundColor = .clear
     }
 }
 
@@ -89,11 +107,15 @@ extension AppleMapsViewController: LocationHandlerDelegate {
 // MARK: UISearchBarDelegate
 extension AppleMapsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard !searchText.isEmpty else { return }
+        guard !searchText.isEmpty else {
+            self.view.bringSubviewToFront(mapView)
+            return
+        }
         if let timer = self.timer {
             timer.invalidate()
         }
         self.timer = Timer.scheduledTimer(withTimeInterval: Constants.timerIntervalToSearch, repeats: false) { _ in
+            self.tableView.isHidden = false
             self.placeViewModel.searchData(with: searchText)
         }
     }
@@ -102,7 +124,7 @@ extension AppleMapsViewController: UISearchBarDelegate {
 // MARK: AppleMapsPlaceViewModelProtocol
 extension AppleMapsViewController: AppleMapsPlaceViewModelProtocol {
     func updateSearchCompleter(results: [MKLocalSearchCompletion]) {
-        self.searchBar.text = results.first?.title
+        tableViewModel.loadData(with: results)
     }
     
     func addAnnotation(with annotation: MKAnnotation) {
@@ -111,5 +133,28 @@ extension AppleMapsViewController: AppleMapsPlaceViewModelProtocol {
     
     func removeAnnotation(with annotation: MKAnnotation) {
         self.mapView.removeAnnotation(annotation)
+    }
+}
+
+extension AppleMapsViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        tableViewModel.numberOfRow()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return tableViewModel.cellForRowAt(tableView, cellForRowAt: indexPath)
+    }
+}
+
+extension AppleMapsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    }
+}
+
+extension AppleMapsViewController: SearchCompletionTableViewModelProtocol {
+    func reloadTableView() {
+        self.tableView.reloadData()
+        self.tableView.isHidden = false
+        self.view.bringSubviewToFront(tableView)
     }
 }

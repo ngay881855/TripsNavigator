@@ -15,6 +15,8 @@
 		FF28D80E253B75EF00A13F27 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D80C253B75EF00A13F27 /* Main.storyboard */; };
 		FF28D810253B75F100A13F27 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF28D80F253B75F100A13F27 /* Assets.xcassets */; };
 		FF28D813253B75F100A13F27 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF28D811253B75F100A13F27 /* LaunchScreen.storyboard */; };
+		FF3519B72541DBE8003175B0 /* SearchCompletionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3519B62541DBE8003175B0 /* SearchCompletionTableViewCell.swift */; };
+		FF3519BA2541DC92003175B0 /* SearchCompletionTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3519B92541DC92003175B0 /* SearchCompletionTableViewModel.swift */; };
 		FF359C9F25413A7300ADA309 /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF359C9E25413A7300ADA309 /* PlaceAnnotationView.swift */; };
 		FF37693F253E291700332085 /* AppleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF37693E253E291700332085 /* AppleMapsViewController.swift */; };
 		FF376943253E405900332085 /* PlaceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF376942253E405900332085 /* PlaceDetailView.swift */; };
@@ -50,6 +52,8 @@
 		FF28D80F253B75F100A13F27 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF28D812253B75F100A13F27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF28D814253B75F100A13F27 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF3519B62541DBE8003175B0 /* SearchCompletionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompletionTableViewCell.swift; sourceTree = "<group>"; };
+		FF3519B92541DC92003175B0 /* SearchCompletionTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCompletionTableViewModel.swift; sourceTree = "<group>"; };
 		FF359C9E25413A7300ADA309 /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
 		FF37693E253E291700332085 /* AppleMapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMapsViewController.swift; sourceTree = "<group>"; };
 		FF376942253E405900332085 /* PlaceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceDetailView.swift; sourceTree = "<group>"; };
@@ -133,6 +137,39 @@
 				FF28D80F253B75F100A13F27 /* Assets.xcassets */,
 			);
 			path = "Trips Navigator";
+			sourceTree = "<group>";
+		};
+		FF3519AC2541D953003175B0 /* Search Completion */ = {
+			isa = PBXGroup;
+			children = (
+				FF3519AF2541D9B2003175B0 /* Model */,
+				FF3519AE2541D9A6003175B0 /* View */,
+				FF3519AD2541D968003175B0 /* View Model */,
+			);
+			path = "Search Completion";
+			sourceTree = "<group>";
+		};
+		FF3519AD2541D968003175B0 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				FF3519B92541DC92003175B0 /* SearchCompletionTableViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		FF3519AE2541D9A6003175B0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FF3519B62541DBE8003175B0 /* SearchCompletionTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FF3519AF2541D9B2003175B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FF368B32253CF73000A83E9A /* Support Files */ = {
@@ -222,6 +259,7 @@
 		FF376932253E26E800332085 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FF3519AC2541D953003175B0 /* Search Completion */,
 				FF37693E253E291700332085 /* AppleMapsViewController.swift */,
 				FF376942253E405900332085 /* PlaceDetailView.swift */,
 				FF376948253E434600332085 /* PlaceDetailView.xib */,
@@ -419,6 +457,7 @@
 				FF376946253E410400332085 /* PlaceAnnotation.swift in Sources */,
 				FF7E1373253D41DB00AF6072 /* ServiceManager.swift in Sources */,
 				FFC1BA7B253F91F9007B26AF /* LocalSearchAnnotation.swift in Sources */,
+				FF3519BA2541DC92003175B0 /* SearchCompletionTableViewModel.swift in Sources */,
 				FF28D80B253B75EF00A13F27 /* GoogleMapsViewController.swift in Sources */,
 				FF376950253E496300332085 /* AppleMapsPlaceViewModel.swift in Sources */,
 				FF7E1365253D3B0C00AF6072 /* Place.swift in Sources */,
@@ -431,6 +470,7 @@
 				FF7E1359253D030100AF6072 /* LocationHandler.swift in Sources */,
 				FF376943253E405900332085 /* PlaceDetailView.swift in Sources */,
 				FF7E137C253D5E8100AF6072 /* PlaceMarker.swift in Sources */,
+				FF3519B72541DBE8003175B0 /* SearchCompletionTableViewCell.swift in Sources */,
 				FF359C9F25413A7300ADA309 /* PlaceAnnotationView.swift in Sources */,
 				FFF4923A2540DCBE00230BAC /* CustomAnnotationView.swift in Sources */,
 				FF7E1379253D579900AF6072 /* PlaceViewModel.swift in Sources */,
